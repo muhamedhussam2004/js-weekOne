@@ -31,3 +31,15 @@ function secret(str) {
     let result = reversed.replace(/[aeuio]/gi, (vowels) => vowels.toUpperCase());
     return result;
 }
+------------------------------------------
+let text = "Please";
+let forbiddenLetters = ['r', 'x', 'p', 'a'];
+
+function filteration() {
+    let result = text
+        .split('')
+        .filter(ch => !forbiddenLetters.includes(ch.toLowerCase()))
+        .join("-");
+    return result
+
+}
