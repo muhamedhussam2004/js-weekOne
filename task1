@@ -22,4 +22,12 @@ for (let i = 0; i < arr.length; i++) {
         arr[i] = capitalize(arr[i])
     }
 }
+-------------------------------------------------
+let s = "Hey There, I'm glad to have you";
 
+function secret(str) {
+    let reversed = str.split('').reverse().join('');
+
+    let result = reversed.replace(/[aeuio]/gi, (vowels) => vowels.toUpperCase());
+    return result;
+}
