@@ -12,3 +12,14 @@ const celsuis = 28;
 const fahrenheit = converter(celsuis);
 console.log(fahrenheit);
 --------------------------
+let arr = [19, "dreams", "PlayGround", 2, "xD", "i"];
+function capitalize(str) {
+    return str[0].toUpperCase() + str.slice(1).toLowerCase();
+}
+for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] == 'number') { arr[i] *= 3 }
+    else if (typeof arr[i] == 'string') {
+        arr[i] = capitalize(arr[i])
+    }
+}
+
