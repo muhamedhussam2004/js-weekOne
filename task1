@@ -1,0 +1,14 @@
+*** Theoritical 
+The == is loosly equal as it make sure that they are equal in value only but not the data type and it does type coercion 
+The === is strictly equal as it mke sure that they are equal in the value and the type and it does not do type coercion
+
+--------------------------
+
+*** Practical
+ function converter (celsius){
+return celsius * 9/5) + 32;
+}
+const celsuis = 28;
+const fahrenheit = converter(celsuis);
+console.log(fahrenheit);
+--------------------------
