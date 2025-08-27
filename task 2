@@ -1,0 +1,75 @@
+Primitive = copy by value .
+Reference = copy by reference .
+
+************************
+
+Function Declaration: fully hoisted و you can call it before or after it’s defined.
+Function Expression: only variable is hoisted, not the function و you can call it only after it’s defined.
+
+***********************
+
+The pure function is the function that depend on parameters that are entered to it only and do not depend on any other variable or function and do not effect any other thing and
+always give the same output using the same input
+
+************************
+
+Destructive:
+-----------
+push() pop() shift() unshift() splice() reverse()
+
+Non-Destructive:
+------------------
+slice() concat() join() split()
+
+**********************
+
+function createItem(name, category, price, stock) {
+    return {
+        name: name || 'unknown',
+        category: category || "unknown",
+        price: price || 0,
+        stock: stock || 0,
+
+        updateStock(newStock) {
+            this.stock = newStock;
+        },
+
+        applyDiscount(discount) {
+            this.price = this.price - (this.price * discount);
+        }
+    };
+}
+
+let inventory = {
+    items: [],
+
+    addItem(item) {
+        this.items.push(item);
+    },
+
+    removeItem(itemName) {
+        this.items = this.items.filter(i => i.name !== itemName);
+    },
+
+    getItem(itemName) {
+        return this.items.find(i => i.name === itemName);
+    },
+
+    filterItems(predicate) {
+        return this.items.filter(predicate);
+    }
+};
+
+const item1 = createItem("Laptop", "Electronics", 1200, 10);
+const item2 = createItem("Phone", "Electronics", 800, 5);
+const item3 = createItem("Shoes", "Clothing", 100, 20);
+inventory.addItem(item1);
+inventory.addItem(item2);
+inventory.addItem(item3);
+item1.updateStock(15);
+item2.applyDiscount(0.1);
+const electronics = inventory.filterItems(item => item.category === "Electronics");
+const lowStock = inventory.filterItems(item => item.stock < 10);
+const phone = inventory.getItem("Phone");
+inventory.removeItem("Shoes");
+
